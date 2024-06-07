@@ -29,12 +29,7 @@ https://github.com/zziiuull/Sudoku-Project.git
 
 > [!IMPORTANT]  
 >
-> At [config](api/config/) in the .env file set `PASSWORD` as your current postgreSQL password
->
-> At [keys](api/config/keys/) generate your public and private key (you can do this at: [cryptotools](https://cryptotools.net/rsagen)) - use a 2048 key length
-
-
-## 
+> At [config](api/config/) in the .env file, set `PASSWORD` as your current postgreSQL password
 
 ```
 HOST = localhost
@@ -45,14 +40,21 @@ DATABASE = sudoku
 DIALECT = postgres
 ```
 
+> [!IMPORTANT]  
+>
+> At [keys](api/config/keys/) generate your public and private key. You can do this at: [cryptotools](https://cryptotools.net/rsagen) (use a 2048 key length)
+>
+> You can also use the existing keys in the project
+
 ## Starting
 
 Start server application 
 
 ```
-cd api/server
+cd api
 npm install
-nodemon index.js
+cd server
+nodemon server
 ```
 
 ---
@@ -61,6 +63,7 @@ Start front-end application
 
 ```
 cd spa
+npm install
 npm run dev
 ```
 
