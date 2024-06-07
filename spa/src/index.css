@@ -75,7 +75,6 @@
     background-color: #bbbbbb;
     user-select: none;
 }
-
 ::placeholder{
     font-size: 1rem;
     opacity: .4;
@@ -96,7 +95,6 @@
 .endgame{
     color: #f75b1e;
 }
-/* -------------------- */
 #login-container{
     height: 100vh;
     display: flex;
@@ -122,7 +120,6 @@ a:visited{
 #link{
     margin-top: 1.4rem;
 }
-/* -------------------- */
 #main-container{
     width: 100vw;
     height: 100vh;
@@ -259,7 +256,6 @@ h1{
     min-width: 105px;
     padding: .1rem;
 }
-/* ---------------------------- */
 #popup{
     width: 100vw;
     height: 100vh;
@@ -271,7 +267,6 @@ h1{
     justify-content: center;
     align-items: center;
 }
-
 #option{
     width: 500px;
     height: 200px;
@@ -280,22 +275,18 @@ h1{
     display: flex;
     flex-direction: column;
 }
-
 #message{
     padding: 1rem 2rem 0 2rem;
 }
-
 #close{
     text-align: right;
     font-weight: 800;
     user-select: none;
     padding-bottom: 1rem;
 }
-
 #close:hover{
     cursor: pointer;
 }
-
 #container-game-button{
     flex: 1 1 0;
     display: flex;
@@ -307,7 +298,6 @@ h1{
 #center-message{
     text-align: center;
 }
-/* --------------------- */
 #content-container{
     margin-top: 5rem;
     display: flex;
