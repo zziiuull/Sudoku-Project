@@ -15,8 +15,8 @@ function verifyJWT(req, res, next){
     if (!token) return res.status(401).json({
         message: "Wrong token format"
     })
-
-    const public_key = fs.readFileSync("./keys/public.key", "utf8")
+    // api\server\keys
+    const public_key = fs.readFileSync("../config/keys/public.key", "utf8")
     jwt.verify(
         token, 
         public_key, 

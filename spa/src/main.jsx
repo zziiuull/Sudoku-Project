@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom/client'
 import LogingPage from "../components/LoginPage.jsx"
 import MainPage from '../components/MainPage.jsx'
 import RegisterPage from '../components/RegisterPage.jsx'
-import HistoricPage from '../components/HistoricPage.jsx'
+import HistoryPage from '../components/HistoryPage.jsx'
 import RankPage from '../components/RankPage.jsx'
 import App from "./App.jsx"
-import "./style.css"
+import "./index.css"
 
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom'
 import { AuthProvider } from './AuthContext.jsx'
@@ -52,8 +52,8 @@ const router = createBrowserRouter(
       element: <ProtectedRoute element={<RankPage></RankPage>}></ProtectedRoute>
     },
     {
-      path: "/historic",
-      element: <ProtectedRoute element={<HistoricPage></HistoricPage>}></ProtectedRoute>
+      path: "/history",
+      element: <ProtectedRoute element={<HistoryPage></HistoryPage>}></ProtectedRoute>
     }              
   ]
 )

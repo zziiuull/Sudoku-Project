@@ -41,7 +41,7 @@ function MainPage(){
                     <div>Logged in as <span id='span'>{name}</span></div>
                     <div id="buttons-container">
                         <button className="header-buttons" onClick={() => handleNavigate("/rank")}>Rank</button>
-                        <button className="header-buttons" onClick={() => handleNavigate("/historic")}>Historic</button>
+                        <button className="header-buttons" onClick={() => handleNavigate("/history")}>History</button>
                         <button className="header-buttons" onClick={handleLogOut}>Logout</button>                    
                     </div>
                 </header>

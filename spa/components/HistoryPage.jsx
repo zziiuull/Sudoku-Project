@@ -2,9 +2,9 @@ import React, { useContext, useState, useEffect } from "react"
 import { AuthContext } from '../src/AuthContext.jsx'
 import { useNavigate } from 'react-router-dom'
 
-function HistoricPage(){
+function HistoryPage(){
     const { token, id, name } = useContext(AuthContext)
-    const [gamesHistoric, setGamesHistoric] = useState([])
+    const [gamesHistory, setGamesHistory] = useState([])
     const [difficulty, setDifficulty] = useState("easy")
     const navigate = useNavigate()
 
@@ -18,7 +18,7 @@ function HistoricPage(){
                     const request = await fetch(`http://localhost:8000/finished/${id}/${difficulty}`, parameters)
                     const data = await request.json()
                     if (request.ok){
-                        setGamesHistoric(data.data)
+                        setGamesHistory(data.data)
                     }
                 }
                 catch (error){
@@ -35,7 +35,7 @@ function HistoricPage(){
         <>
             <div id="top-container">
                 <button id="back-button"  className="sudoku-button" onClick={handleBackClick}>&lt;-</button>
-                <p>Your <span id='span'>{difficulty}</span> games historic, <span id='span'>{name}</span></p>
+                <p>Your <span id='span'>{difficulty}</span> games history, <span id='span'>{name}</span></p>
             </div>
             <div id="content-container">
                 <div id="">
@@ -53,7 +53,7 @@ function HistoricPage(){
                     </div>
                 </div>
                 <div id="table-container">
-                    {gamesHistoric.length == 0 ? <div id="no-games">No games</div> :
+                    {gamesHistory.length == 0 ? <div id="no-games">No games</div> :
                     <table id="table">
                     <thead>
                         <tr>
@@ -62,7 +62,7 @@ function HistoricPage(){
                         </tr>
                     </thead>
                     <tbody>
-                        {gamesHistoric.map((game, i) => {
+                        {gamesHistory.map((game, i) => {
                             return (
                                 <tr key={i}>
                                     <td>{game.minutes < 10 ? "0" + game.minutes : game.minutes}:{game.seconds < 10 ? "0" + game.seconds : game.seconds}</td>
@@ -89,4 +89,4 @@ function HistoricPage(){
     )
 }
 
-export default HistoricPage
+export default HistoryPage

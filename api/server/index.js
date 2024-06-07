@@ -45,7 +45,7 @@ app.post("/login", [body_parser.json(), async (req, res, next) => {
             )
         }
         else{
-            const private_key = fs.readFileSync("./keys/private.key", "utf8")
+            const private_key = fs.readFileSync("../config/keys/private.key", "utf8")
             
             const token = jwt.sign(
                 {email}, 
