@@ -48,7 +48,9 @@ DIALECT = postgres
 
 ## Starting
 
-Start server application 
+### Start server application 
+
+At `/Sudoku-Project`:
 
 ```
 cd api
@@ -59,7 +61,9 @@ nodemon server
 
 ---
 
-Start front-end application
+### Start front-end application
+
+At `/Sudoku-Project`:
 
 ```
 cd spa
