@@ -124,6 +124,24 @@ class Sudoku {
     }
 }
 
+function processSudoku(sudoku){
+    let result = []
+
+    for (let line of sudoku){
+        let newLine = []
+        for (let value of line){
+            if (value > 0){
+                newLine.push({i: 1, v: value})
+            }
+            else{
+                newLine.push({i: -1, v: 0})
+            }
+        }
+        result.push(newLine)
+    }
+    return result
+}
+
 function getSudokuGame(difficulty){
     const N = 9
     let k
@@ -139,21 +157,7 @@ function getSudokuGame(difficulty){
     const sudoku = new Sudoku(N, k)
     sudoku.fillValues()
 
-    let result = []
-
-    for (let line of sudoku.mat){
-        let newLine = []
-        for (let value of line){
-            if (value > 0){
-                newLine.push({index: 1, value: value})
-            }
-            else{
-                newLine.push({index: -1, value: 0})
-            }
-        }
-        result.push(newLine)
-    }
-    return result
+    return processSudoku(sudoku.mat)
 }
 
 export default getSudokuGame

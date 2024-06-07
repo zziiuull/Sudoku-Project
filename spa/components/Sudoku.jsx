@@ -133,10 +133,10 @@ function Sudoku(props){
         if (/^[1-9]?$/.test(value)) {
             const newSudokuLines = [...sudokuLines];
             newSudokuLines[line][column] = {
-                value: isNaN(parseInt(value, 10)) ? 0 : parseInt(value, 10), 
-                index: -1}
+                v: isNaN(parseInt(value, 10)) ? 0 : parseInt(value, 10), 
+                i: -1}
             setSudokuLines(newSudokuLines);
-            if (sudokuLines.flat().filter(v => v.value > 0).length == 81 &&
+            if (sudokuLines.flat().filter(v => v.v > 0).length == 81 &&
                 isGameFinished(sudokuLines, value, line, column)){
                     setGameStatus({finished: true, time: false})
             }
@@ -226,13 +226,13 @@ function Sudoku(props){
 
     let sudoku = sudokuLines.map((values, line) => {
         return values.map((value, column) => {
-            if (value.value > 0 && value.index !== -1) {
+            if (value.v > 0 && value.i !== -1) {
                 return <div className="square fixed" data-posline={line} data-poscolumn={column} key={`${line}-${column}`} value={value} 
                 onMouseOver={(e) => handleMouseOver(line, column)}
-                onMouseLeave={handleMouseLeave}>{value.value}</div>
+                onMouseLeave={handleMouseLeave}>{value.v}</div>
             }
             return <input type="text" className="square" data-posline={line} data-poscolumn={column} maxLength="1" key={`${line}-${column}`} 
-            value={value.value > 0 && value.index === -1 ? value.value : ""}
+            value={value.v > 0 && value.i === -1 ? value.v : ""}
             onChange={(e) => handleChange(e, line, column)} 
             onMouseOver={(e) => handleMouseOver(line, column)}
             onMouseLeave={handleMouseLeave}/>

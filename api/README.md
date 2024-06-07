@@ -29,7 +29,7 @@ https://github.com/zziiuull/Sudoku-Project.git
 
 > [!IMPORTANT]  
 >
-> At [config](api/config/) in the .env file, set `PASSWORD` as your current postgreSQL password
+> At [config](./config/) in the .env file, set `PASSWORD` as your current postgreSQL password
 
 ```
 HOST = localhost
@@ -42,7 +42,7 @@ DIALECT = postgres
 
 > [!IMPORTANT]  
 >
-> At [keys](api/config/keys/) generate your public and private key. You can do this at: [cryptotools](https://cryptotools.net/rsagen) (use a 2048 key length)
+> At [keys](./config/keys/) generate your public and private key. You can do this at: [cryptotools](https://cryptotools.net/rsagen) (use a 2048 key length)
 >
 > You can also use the existing keys in the project
 
