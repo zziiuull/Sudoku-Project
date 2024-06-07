@@ -12,7 +12,7 @@ To create a valid account:
 After creating an account you can log in
 
 ## How to play
-To play choose a difficulty between **easy, medium e hard**
+To play choose a difficulty between **easy, medium and hard**
 
 ## The game
 
