@@ -359,9 +359,7 @@ Response example:
 
 #### Request example
 
-`/finished/8/hard`
-
-`:id` - Player id
+`/rank/easy`
 
 `:difficulty` - Game difficulty
 
@@ -401,15 +399,6 @@ Response example:
 | Method | Endpoint 		  | Content-Type                |
 |--------|--------------------|-----------------------------|
 | GET    | <kbd>/play</kbd>   | <kbd>application/json</kbd> |
-
-#### Request example
-
-`/finished/3/medium`
-
-`:id` - Player id
-
-`:difficulty` - Game difficulty
-
 
 #### Response
 
