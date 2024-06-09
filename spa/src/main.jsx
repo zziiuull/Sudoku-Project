@@ -5,6 +5,7 @@ import MainPage from '../components/MainPage.jsx'
 import RegisterPage from '../components/RegisterPage.jsx'
 import HistoryPage from '../components/HistoryPage.jsx'
 import RankPage from '../components/RankPage.jsx'
+import ErrorElement from '../components/ErrorElement.jsx'
 import App from "./App.jsx"
 import "./index.css"
 
@@ -54,7 +55,11 @@ const router = createBrowserRouter(
     {
       path: "/history",
       element: <ProtectedRoute element={<HistoryPage></HistoryPage>}></ProtectedRoute>
-    }              
+    },
+    {
+      path: "*",
+      element: <ErrorElement></ErrorElement>
+    }        
   ]
 )
 
