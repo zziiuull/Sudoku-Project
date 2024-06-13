@@ -56,7 +56,7 @@ At `/Sudoku-Project`:
 cd api
 npm install
 cd server
-node index.js
+nodemon server #or node index.js
 ```
 
 ---

@@ -224,21 +224,6 @@ function Sudoku(props){
     }
 
 
-    let sudoku = sudokuLines.map((values, line) => {
-        return values.map((value, column) => {
-            if (value.v > 0 && value.i !== -1) {
-                return <div className="square fixed" data-posline={line} data-poscolumn={column} key={`${line}-${column}`} value={value} 
-                onMouseOver={(e) => handleMouseOver(line, column)}
-                onMouseLeave={handleMouseLeave}>{value.v}</div>
-            }
-            return <input type="text" className="square" data-posline={line} data-poscolumn={column} maxLength="1" key={`${line}-${column}`} 
-            value={value.v > 0 && value.i === -1 ? value.v : ""}
-            onChange={(e) => handleChange(e, line, column)} 
-            onMouseOver={(e) => handleMouseOver(line, column)}
-            onMouseLeave={handleMouseLeave}/>
-        })
-    })
-
     return(
         <>  
             {continueGame && <PopupContinue continue = {continueGame} restart = {restart} setContinue = {setContinueGame} minutes = {minutes} seconds = {seconds} setIsPaused = {setIsPaused}></PopupContinue>}
@@ -248,7 +233,20 @@ function Sudoku(props){
             </div>
             <div id="game-container">
                 <div id="sudoku">
-                    {sudoku}
+                    {sudokuLines.map((values, line) => {
+                        return values.map((value, column) => {
+                            if (value.v > 0 && value.i !== -1) {
+                                return <div className="square fixed" data-posline={line} data-poscolumn={column} key={`${line}-${column}`} value={value} 
+                                onMouseOver={(e) => handleMouseOver(line, column)}
+                                onMouseLeave={handleMouseLeave}>{value.v}</div>
+                            }
+                            return <input type="text" className="square" data-posline={line} data-poscolumn={column} maxLength="1" key={`${line}-${column}`} 
+                            value={value.v > 0 && value.i === -1 ? value.v : ""}
+                            onChange={(e) => handleChange(e, line, column)} 
+                            onMouseOver={(e) => handleMouseOver(line, column)}
+                            onMouseLeave={handleMouseLeave}/>
+                        })
+                    })}
                     {isPaused && <div id="lock-game"></div>}
                 </div>
                 <div id="configuration">

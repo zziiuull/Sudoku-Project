@@ -168,9 +168,15 @@ footer{
 }
 
 .logos-slide img{
-    height: 50px;
+    height: 40px;
     margin: 0 40px;
+    transition: all .2s ease;
 }
+
+.logos-slide img:hover{
+    transform: scale(1.25);
+}
+
 footer::before, footer::after{
     position: absolute;
     width: 250px;
@@ -319,6 +325,7 @@ h1{
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 2;
 }
 #option{
     width: 500px;
