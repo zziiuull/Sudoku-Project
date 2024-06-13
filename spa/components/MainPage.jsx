@@ -1,11 +1,17 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 import { AuthContext } from '../src/AuthContext.jsx'
 import { useNavigate } from 'react-router-dom'
 
 function MainPage(){
     const { token, name, eraseAuthData } = useContext(AuthContext)
     const navigate = useNavigate()
-    
+
+    useEffect(() => {
+        const slide = document.querySelector(".logos-slide")
+        const clonedSlide = slide.cloneNode(true)
+        slide.parentNode.appendChild(clonedSlide)
+    }, [])
+
     async function handleClick(event){
         try{
             const difficulty = event.target.dataset.difficulty
@@ -56,7 +62,20 @@ function MainPage(){
                     </div>
                 </main>
                 <footer>
-                    Made by Luiz =) 
+                    <div className="logos-slide">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original-wordmark.svg" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original-wordmark.svg" />   
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" />        
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sequelize/sequelize-original.svg" /> 
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg" />    
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodemon/nodemon-original.svg" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg" />              
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/markdown/markdown-original.svg" />
+                    </div>
                 </footer>
             </div>
         </>

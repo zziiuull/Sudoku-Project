@@ -139,10 +139,63 @@ main{
     flex: 1 1 0;
     display: flex;
     flex-direction: column;
+    margin-top: 5rem;
 }
 footer{
-    padding-left: 1rem;
+    flex: 1 1 0;
+    width: 100vw;
+    white-space: nowrap;
+    overflow: hidden;
+    display: flex;
+    position: relative;
 }
+
+@keyframes slide{
+    from {
+        transform: translateX(0);
+        
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}
+
+.logos-slide{
+    display: flex;
+    align-items: end;
+    padding-bottom: 0.6rem;
+    animation: slide 25s infinite linear;
+}
+
+.logos-slide img{
+    height: 50px;
+    margin: 0 40px;
+}
+footer::before, footer::after{
+    position: absolute;
+    width: 250px;
+    height: 100%;
+    content: "";
+    z-index: 2;
+}
+
+footer::before{
+    top: 0;
+    left: 0;
+    background: linear-gradient(to left, transparent, rgb(220, 217, 217));
+}
+
+footer::after{
+    top: 0;
+    right: 0;
+    background: linear-gradient(to right, transparent, rgb(220, 217, 217));
+}
+
+footer:hover .logos-slide{
+    animation-play-state: paused;
+}
+
+
 #difficulty{
     text-align: center;
 }
@@ -159,7 +212,7 @@ h1{
     justify-items: center;
     align-items: center;
     grid-template-columns: repeat(3, 1fr);
-    padding: 10rem;
+    padding: 5rem 5rem 7rem 5rem;
 }
 .cards{
     width: 200px;
