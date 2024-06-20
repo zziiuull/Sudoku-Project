@@ -1,4 +1,5 @@
 const Sequelize = require("sequelize")
+const bcrypt = require("bcrypt")
 const dabatase = require("../database")
 const Finished = require("./Finished")
 const Unfinished = require("./Unfinished")
@@ -34,6 +35,18 @@ const User = dabatase.define("user", {
             len: [4, 32]
         }
     }
+})
+
+User.beforeValidate((user, options) => {
+    if (user.password.length < 4 || user.password.length > 32) {
+        throw new Error('A senha deve ter entre 4 e 32 caracteres');
+    }
+})
+
+User.beforeCreate(async (user, options) => {
+    const salt = await bcrypt.genSalt(10)
+    console.log(user.password)
+    user.password = await bcrypt.hash(user.password, salt)
 })
 
 User.hasMany(Finished, {foreignKey: 'id_p'})

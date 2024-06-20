@@ -89,12 +89,6 @@
     padding: 0;
     user-select: none;
 }
-.midgame{
-    color: #c8bc68;
-}
-.endgame{
-    color: #f75b1e;
-}
 #login-container{
     height: 100vh;
     display: flex;
@@ -164,7 +158,7 @@ footer{
     display: flex;
     align-items: end;
     padding-bottom: 0.6rem;
-    animation: slide 25s infinite linear;
+    animation: slide 30s infinite linear;
 }
 
 .logos-slide img{
@@ -285,6 +279,7 @@ h1{
 #timer-value{
     font-size: 2.5rem;
     font-weight: 700;
+    color: rgb(0, 0, 0);
     transition: color .3s ease;
 }
 #configuration{

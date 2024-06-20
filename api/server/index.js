@@ -23,6 +23,44 @@ async function startDatabase(){
 
 app.use(cors())
 
+app.post("/register", [body_parser.json(), async (req, res, next) => {
+    if (!req.body) {
+        res.status(400).json(
+            {
+                message: "Missing required user information"
+            }
+        )
+    }
+
+    const username = req.body.username
+    const email = req.body.email
+    const password = req.body.password
+
+    try{
+        const user = await insertUser(username, email, password)
+        console.log(user)
+        if (user === undefined){
+            res.status(401).json(
+                {
+                    message: "Invalid credentials"
+                }
+            )
+        }
+        else{
+            res.status(200).json(
+                {
+                    message: "User registered"
+                }
+            )
+        }
+        
+    }
+    catch (error){
+        console.log(error)
+    }
+
+}])
+
 app.post("/login", [body_parser.json(), async (req, res, next) => {
     if (!req.body) {
         res.status(400).json(
@@ -70,44 +108,6 @@ app.post("/login", [body_parser.json(), async (req, res, next) => {
     catch (error){
         console.log(error)
     }
-}])
-
-app.post("/register", [body_parser.json(), async (req, res, next) => {
-    if (!req.body) {
-        res.status(400).json(
-            {
-                message: "Missing required user information"
-            }
-        )
-    }
-
-    const username = req.body.username
-    const email = req.body.email
-    const password = req.body.password
-
-    try{
-        const user = await insertUser(username, email, password)
-        console.log(user)
-        if (user === undefined){
-            res.status(401).json(
-                {
-                    message: "Invalid credentials"
-                }
-            )
-        }
-        else{
-            res.status(200).json(
-                {
-                    message: "User registered"
-                }
-            )
-        }
-        
-    }
-    catch (error){
-        console.log(error)
-    }
-
 }])
 
 app.use(verifyJWT)

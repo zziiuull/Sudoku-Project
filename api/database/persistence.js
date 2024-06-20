@@ -1,7 +1,7 @@
+const bcrypt = require("bcrypt")
 const User = require("./models/User")
 const Finished = require("./models/Finished")
 const Unfinished = require("./models/Unfinished")
-
 
 async function insertUser(name, email, password){
     try{
@@ -69,12 +69,17 @@ async function searchtUser(email, password){
         const user = await User.findOne(
             {
                 where:{
-                    email: email,
-                    password: password
+                    email: email
                 }
             }
         )
-        return user 
+
+        if (!user) return null
+        console.log(user.password)
+        const isValid = await bcrypt.compare(password, user.password)
+        if (isValid) return user 
+        
+        return null
     }
     catch (error){
         console.log(error)

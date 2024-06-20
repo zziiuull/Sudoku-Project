@@ -149,10 +149,10 @@ function getSudokuGame(difficulty){
         k = 20
     }
     else if (difficulty == "medium"){
-        k = 35
+        k = 45
     }
     else{
-        k = 45
+        k = 60
     }
     const sudoku = new Sudoku(N, k)
     sudoku.fillValues()

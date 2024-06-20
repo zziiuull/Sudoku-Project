@@ -16,6 +16,7 @@ function Sudoku(props){
     const [continueGame, setContinueGame] = useState(false)
     const timerRef = useRef(null)
     const navigate = useNavigate()
+    const [rgb, setRgb] = useState(0)
 
     const { token, id } = useContext(AuthContext)
 
@@ -53,17 +54,11 @@ function Sudoku(props){
         if (minutes == 0 && seconds == 0){
             setGameStatus({finished: true, time: true})
         }
-        const timer = document.getElementById("timer-value")
-        if (minutes <= 5 && minutes > 1)
-            timer.classList.add("midgame")
-        else if (timer.classList.contains("midgame"))
-            timer.classList.remove("midgame")
-        if (minutes <= 1){
-            timer.classList.add("endgame")
+        const timer = document.getElementById('timer-value')
+        if (timer.style.color != "rgb(255, 0, 0)"){
+            setRgb(((10 - minutes) * 60 + 60 - seconds) * 0.425)
+            
         }
-        else if (timer.classList.contains("endgame"))
-            timer.classList.remove("endgame")
-
         return () => clearInterval(timerRef.current)
     }, [seconds, minutes])
 
@@ -251,7 +246,7 @@ function Sudoku(props){
                 </div>
                 <div id="configuration">
                     <div id="timer">
-                        <p id="timer-value">
+                        <p id="timer-value" style={{ color: `rgb(${rgb}, 0, 0)`}}>
                             {minutes < 10 ? "0" + minutes : minutes}:{seconds < 10 ? "0" + seconds : seconds}
                         </p>
                     </div>
