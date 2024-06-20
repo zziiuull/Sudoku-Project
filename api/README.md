@@ -22,7 +22,7 @@
 ## Cloning
 
 ```
-https://github.com/zziiuull/Sudoku-Project.git
+git clone https://github.com/zziiuull/Sudoku-Project.git
 ```
 
 ## Environment configuration
