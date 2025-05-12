@@ -8,23 +8,6 @@
 - Saving and retrieving data from finished and unfinished games
 - Checking user's authenticity/permissions
 
----
-
-## Prerequisites
-
-> [!IMPORTANT]  
->
-> - [Node.js](https://nodejs.org/en)
-> - [PostgreSQL](https://www.postgresql.org)
-
----
-
-## Cloning
-
-```
-git clone https://github.com/zziiuull/Sudoku-Project.git
-```
-
 ## Environment configuration
 
 > [!IMPORTANT]  
@@ -45,38 +28,6 @@ DIALECT = postgres
 > At [keys](./config/keys/) generate your public and private key. You can do this at: [cryptotools](https://cryptotools.net/rsagen) (use a 2048 key length)
 >
 > You can also use the existing keys in the project
-
-## Starting
-
-### Start server application 
-
-At `/Sudoku-Project`:
-
-```
-cd api
-npm install
-cd server
-nodemon server #or node index.js
-```
-
----
-
-### Start front-end application
-
-At `/Sudoku-Project`:
-
-```
-cd spa
-npm install
-npm run dev
-```
-
-> [!NOTE]  
-> By default the server port is `8000`
->
-> A token that expires in 15 minutes is generated with each user login
-
----
 
 ## Requests
 
