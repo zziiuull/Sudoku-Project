@@ -32,3 +32,43 @@ You can view your games history (for each difficulty)
 
 You can log out, being necessary to log in to play again
 
+## Cloning
+
+```
+git clone https://github.com/zziiuull/Sudoku-Project.git
+```
+
+## Building Docker images
+
+At `/Sudoku-Project` run in your terminal:
+```
+docker build -t sudoku-postgres .
+```
+
+At `/Sudoku-Proect/api` run in your terminal:
+```
+docker build -t api .
+```
+
+At `/Sudoku-Proect/spa` run in your terminal:
+```
+docker build -t spa .
+```
+
+## Running Docker containers
+
+### Create a network
+
+```
+docker network create sudoku-network
+```
+
+### Run containers
+
+```
+docker run -d --name postgres --network sudoku-network -p 5432:5432  sudoku-postgres
+docker run -d --name api --network sudoku-network -p 8000:8000 api
+docker run -d --name spa --network sudoku-network -p 5173:5173 spa
+```
+
+
