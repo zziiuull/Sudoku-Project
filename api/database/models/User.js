@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize")
-const bcrypt = require("bcrypt")
+const bcrypt = require("bcryptjs")
 const dabatase = require("../database")
 const Finished = require("./Finished")
 const Unfinished = require("./Unfinished")
